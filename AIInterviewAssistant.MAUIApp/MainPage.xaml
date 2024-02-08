@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AIInterviewAssistant.MAUIApp.MainPage">
+
+    <ScrollView>
+        <VerticalStackLayout
+            Padding="30,0"
+            Spacing="25">
+            <Label
+                Text="Position"
+                SemanticProperties.HeadingLevel="Level1" />
+            <Entry Text="{Binding Position}" />
+            
+            <Label
+                Text="ModelPath"
+                SemanticProperties.HeadingLevel="Level1" />
+            <Entry Text="{Binding ModelPath}" />
+            
+            <Button Text="Load" Command="{Binding LoadModelCommand}" />
+            <HorizontalStackLayout>
+                <Label
+                    Text="Input"
+                    SemanticProperties.HeadingLevel="Level1" Margin="0, 0, 5, 0" />
+                <Button HorizontalOptions="End" Text="Send manually" Command="{Binding SendPromptCommand}" Margin="0, 0, 5, 0" />
+            </HorizontalStackLayout>
+            <Editor Text="{Binding InputPrompt}" HeightRequest="150" />
+
+            <Label
+                Text="Output"
+                SemanticProperties.HeadingLevel="Level1"
+                SemanticProperties.Description="AI output" />
+            <Editor Text="{Binding OutputPrompt}" HeightRequest="350"/>
+
+            <HorizontalStackLayout Padding="5, 5">
+                <Label Text="Status:"/>
+                <Label Text="{Binding StatusText}" Margin="5, 0, 5, 0"/>
+            </HorizontalStackLayout>
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
